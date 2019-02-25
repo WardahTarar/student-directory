@@ -8,11 +8,7 @@ def input_students
     
     while !name.empty? do
         students << {name: name, cohort: :november}
-        if students.length == 1
-          puts "Now we have #{students.count} student"
-        else
-          puts "Now we have #{students.count} students"
-        end
+        puts "Now we have #{students.count} students"
         name = gets.chomp
     end
     students
@@ -24,20 +20,15 @@ def print_header
 end
 
 def print(students)
-  if students != nil
-    students.each do |student|
-      output = "#{student[:name]} (#{student[:cohort]} cohort)" 
-      puts output.center(40)
-    end
+counter = 0
+  while students[counter] != nil
+    puts students[counter]
+    counter += 1
   end
 end
 
 def print_footer(students)
-  if students.length == 1
-  puts "Overall, we have #{students.count} great student"
-  else
-  puts "Overall, we have #{students.count} great students"
-  end
+    puts "Overall, we have #{students.count} great students"
 end
 
 students = input_students
